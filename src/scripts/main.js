@@ -5,12 +5,11 @@ document.querySelectorAll('form').forEach(form => {
   const inputs = form.querySelectorAll('input');
 
   inputs.forEach(input => {
-    const labelText = input.dataset.label; 
+    const labelText = input.dataset.label;
     const id = input.id;
 
-    if (!labelText || !id) return; 
+    if (!labelText || !id) return;
 
-    // Створення label
     const label = document.createElement('label');
     label.classList.add('field-label');
     label.setAttribute('for', id);
@@ -18,8 +17,9 @@ document.querySelectorAll('form').forEach(form => {
 
     input.placeholder = labelText.charAt(0).toUpperCase() + labelText.slice(1);
 
-    const parent = input.parentElement;
-    parent.insertBefore(label, input);
+    const inputContainer = input.parentElement; 
+    inputContainer.insertBefore(label, input);
   });
 });
+
 
